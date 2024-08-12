@@ -5,12 +5,12 @@ interface MyPresetOptions {
   secondaryColor?: string;
 }
 
-export default definePreset(
-  (options?: MyPresetOptions): Preset => ({
+export default definePreset((options?: MyPresetOptions): Preset => {
+  return {
     name: "my-preset",
     rules: [
       ["bg-primary", { "background-color": options?.primaryColor || "blue" }],
       ["bg-secondary", { "background-color": options?.secondaryColor || "green" }],
     ],
-  })
-);
+  };
+});
