@@ -3,6 +3,6 @@
 </script>
 
 <template>
-  <div m-10 bg-primary>Hello</div>
-  <div p-5.5 bg-secondary>World!</div>
+  <div sm:bg-primary lg:bg-red>Hello</div>
+  <div bg-secondary>World!</div>
 </template>
