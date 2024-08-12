@@ -1,9 +1,16 @@
-import { type Preset } from "unocss";
+import { definePreset, type Preset } from "unocss";
 
-export const myPreset: Preset = {
-  name: "my-preset",
-  rules: [
-    [/^m-([.\d]+)$/, ([, num]) => ({ margin: `${num}px` })],
-    [/^p-([.\d]+)$/, ([, num]) => ({ padding: `${num}px` })],
-  ],
-};
+interface MyPresetOptions {
+  primaryColor?: string;
+  secondaryColor?: string;
+}
+
+export default definePreset(
+  (options?: MyPresetOptions): Preset => ({
+    name: "my-preset",
+    rules: [
+      ["bg-primary", { "background-color": options?.primaryColor || "blue" }],
+      ["bg-secondary", { "background-color": options?.secondaryColor || "green" }],
+    ],
+  })
+);
